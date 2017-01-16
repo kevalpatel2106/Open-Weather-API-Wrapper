@@ -20,6 +20,11 @@ public class MultipleCitiesWeathers {
     @SerializedName("list")
     @Expose
     private List<CurrentWeather> weatherInfos = new ArrayList<>();
+    @Expose
+    private int code;
+    @SerializedName("message")
+    @Expose
+    private String message;
 
     /**
      * @return list of {@link CurrentWeather} information for each city
@@ -30,5 +35,13 @@ public class MultipleCitiesWeathers {
 
     public int getNoOfResult() {
         return noOfResult;
+    }
+
+    public int getStatusCode() {
+        return code;
+    }
+
+    public String statusMessage() {
+        return message;
     }
 }

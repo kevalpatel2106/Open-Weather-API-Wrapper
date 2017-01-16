@@ -53,6 +53,12 @@ public class CurrentWeather {
     @SerializedName("snow")
     @Expose
     private Snow snowInfo;
+    @Expose
+    private int code;
+    @SerializedName("message")
+    @Expose
+    private String message;
+
 
     /**
      * @return Coordinates
@@ -144,5 +150,13 @@ public class CurrentWeather {
      */
     public Snow getSnowInfo() {
         return snowInfo;
+    }
+
+    public int getStatusCode() {
+        return code;
+    }
+
+    public String statusMessage() {
+        return message;
     }
 }

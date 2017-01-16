@@ -24,6 +24,12 @@ public class WeatherForecast {
     @SerializedName("list")
     @Expose
     private List<Forecast> forecast = null;
+    @SerializedName("cod")
+    @Expose
+    private int code;
+    @SerializedName("message")
+    @Expose
+    private String message;
 
     /**
      * @return City information
@@ -43,5 +49,13 @@ public class WeatherForecast {
      */
     public List<Forecast> getForecast() {
         return forecast;
+    }
+
+    public int getStatusCode() {
+        return code;
+    }
+
+    public String statusMessage() {
+        return message;
     }
 }

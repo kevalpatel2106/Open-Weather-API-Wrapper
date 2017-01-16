@@ -28,6 +28,7 @@ import rx.schedulers.Schedulers;
 public class OpenWeatherApi {
 
     private static final int NO_LIMIT = -1;
+    private static final int SUCCESS_CODE = 200;
 
     @SuppressWarnings("NullableProblems")
     @NonNull
@@ -122,7 +123,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(CurrentWeather currentWeather) {
-                        listener.onResponse(currentWeather);
+                        if (currentWeather.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(currentWeather);
+                        else listener.onError(currentWeather.statusMessage());
                     }
                 });
 
@@ -160,7 +163,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(CurrentWeather currentWeather) {
-                        listener.onResponse(currentWeather);
+                        if (currentWeather.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(currentWeather);
+                        else listener.onError(currentWeather.statusMessage());
                     }
                 });
 
@@ -196,7 +201,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(CurrentWeather currentWeather) {
-                        listener.onResponse(currentWeather);
+                        if (currentWeather.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(currentWeather);
+                        else listener.onError(currentWeather.statusMessage());
                     }
                 });
 
@@ -236,7 +243,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(CurrentWeather currentWeather) {
-                        listener.onResponse(currentWeather);
+                        if (currentWeather.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(currentWeather);
+                        else listener.onError(currentWeather.statusMessage());
                     }
                 });
     }
@@ -272,7 +281,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(MultipleCitiesWeathers citiesWeathers) {
-                        listener.onResponse(citiesWeathers);
+                        if (citiesWeathers.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(citiesWeathers);
+                        else listener.onError(citiesWeathers.statusMessage());
                     }
                 });
     }
@@ -327,7 +338,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(WeatherForecast weatherForecasts) {
-                        listener.onResponse(weatherForecasts);
+                        if (weatherForecasts.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(weatherForecasts);
+                        else listener.onError(weatherForecasts.statusMessage());
                     }
                 });
     }
@@ -413,7 +426,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(WeatherForecast weatherForecasts) {
-                        listener.onResponse(weatherForecasts);
+                        if (weatherForecasts.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(weatherForecasts);
+                        else listener.onError(weatherForecasts.statusMessage());
                     }
                 });
     }
@@ -470,7 +485,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(WeatherForecast weatherForecasts) {
-                        listener.onResponse(weatherForecasts);
+                        if (weatherForecasts.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(weatherForecasts);
+                        else listener.onError(weatherForecasts.statusMessage());
                     }
                 });
     }
@@ -524,7 +541,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(WeatherForecast weatherForecasts) {
-                        listener.onResponse(weatherForecasts);
+                        if (weatherForecasts.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(weatherForecasts);
+                        else listener.onError(weatherForecasts.statusMessage());
                     }
                 });
     }
@@ -607,7 +626,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(WeatherForecast weatherForecasts) {
-                        listener.onResponse(weatherForecasts);
+                        if (weatherForecasts.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(weatherForecasts);
+                        else listener.onError(weatherForecasts.statusMessage());
                     }
                 });
     }
@@ -664,7 +685,9 @@ public class OpenWeatherApi {
 
                     @Override
                     public void onNext(WeatherForecast weatherForecasts) {
-                        listener.onResponse(weatherForecasts);
+                        if (weatherForecasts.getStatusCode() == SUCCESS_CODE)
+                            listener.onResponse(weatherForecasts);
+                        else listener.onError(weatherForecasts.statusMessage());
                     }
                 });
     }
