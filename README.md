@@ -24,9 +24,9 @@ If you don't have the open weather api key, you can generate it from [here](http
 - **Accessing the API:**
 
 Open weather api provides you functions to access below information:
-1. Get current weather for provided city, geo point or postal code
-2. Get three hourly forecast for city or, geo point.
-3. Get the daily forecast for provided city or geo point.
+- _Get current weather for provided city, geo point or postal code._
+- _Get three hourly forecast for city or, geo point._
+- _Get the daily forecast for provided city or geo point._
 
 You can get the required information by passing the required parameters. The information will be received in specific listeners.
 
