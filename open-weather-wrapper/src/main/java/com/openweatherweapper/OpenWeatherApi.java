@@ -2,11 +2,16 @@ package com.openweatherweapper;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.openweatherweapper.exception.InvalidApiKeyException;
 import com.openweatherweapper.exception.NotInitilizedException;
 import com.openweatherweapper.interfaces.CurrentWeatherListener;
+import com.openweatherweapper.interfaces.MultipleCitiesWeatherListener;
 import com.openweatherweapper.models.CurrentWeather;
+import com.openweatherweapper.models.MultipleCitiesWeathers;
+
+import java.util.ArrayList;
 
 import rx.Observable;
 import rx.Observer;
@@ -189,4 +194,36 @@ public class OpenWeatherApi {
                     }
                 });
     }
+
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getMultipleCitiesCurrentWeather(ArrayList<String> idsOfCities,
+                                                       @NonNull final MultipleCitiesWeatherListener listener) {
+
+        //Check if the sdk initialized?
+        checkInitializeOrThrow();
+
+        APIService apiService = RetrofitBuilder.getApiService();
+        Observable<MultipleCitiesWeathers> observable = apiService
+                .getCurrentWeatherMultipleCities(TextUtils.join(",", idsOfCities), sUnit, sApiKey);
+
+        observable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Observer<MultipleCitiesWeathers>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(MultipleCitiesWeathers citiesWeathers) {
+                        listener.onResponse(citiesWeathers);
+                    }
+                });
+    }
+
 }

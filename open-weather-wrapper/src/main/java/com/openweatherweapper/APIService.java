@@ -1,6 +1,7 @@
 package com.openweatherweapper;
 
 import com.openweatherweapper.models.CurrentWeather;
+import com.openweatherweapper.models.MultipleCitiesWeathers;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -35,4 +36,9 @@ interface APIService {
     Observable<CurrentWeather> getCurrentWeatherByZipCode(@Query("zip") String zipCode,
                                                           @Query("units") String unit,
                                                           @Query("appid") String apikey);
+
+    @GET("group")
+    Observable<MultipleCitiesWeathers> getCurrentWeatherMultipleCities(@Query("id") String cityIds,
+                                                                       @Query("units") String unit,
+                                                                       @Query("appid") String apikey);
 }
