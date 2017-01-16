@@ -76,8 +76,11 @@ public class OpenWeatherApi {
      ***********************************************************************************************/
 
     /**
-     * @param cityName
-     * @param listener
+     * Get the current weather condition for the given city name. If the city name does not mach to any location
+     * error will occur.
+     *
+     * @param cityName name of the city. (e.g. Landon)
+     * @param listener {@link CurrentWeatherListener} to listen the response
      */
     @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(@NonNull String cityName,
@@ -86,6 +89,14 @@ public class OpenWeatherApi {
     }
 
 
+    /**
+     * Get the current weather condition for the given city name. If the city name does not mach to any location
+     * error will occur.
+     *
+     * @param cityName    name of the city. (e.g. Landon)
+     * @param countryCode ISO 3166 country code. (e.g. uk)
+     * @param listener    {@link CurrentWeatherListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(@NonNull String cityName,
                                          @Nullable String countryCode,
@@ -117,6 +128,13 @@ public class OpenWeatherApi {
 
     }
 
+    /**
+     * Get current weather condition pointed by the geo point.
+     *
+     * @param latitude  latitude of the point
+     * @param longitude latitude of the point
+     * @param listener  {@link CurrentWeatherListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(double latitude,
                                          double longitude,
@@ -148,6 +166,13 @@ public class OpenWeatherApi {
 
     }
 
+    /**
+     * Get current weather of the city provided by the city id. This method is recommended to get the
+     * accurate result for the give city.  If the city id does not exist then, error will occur.
+     *
+     * @param cityId   city id.
+     * @param listener {@link CurrentWeatherListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(int cityId,
                                          @NonNull final CurrentWeatherListener listener) {
@@ -177,6 +202,14 @@ public class OpenWeatherApi {
 
     }
 
+    /**
+     * Get current weather of the city provided by zip/postal code. If the zip/postal code does not
+     * exist then, error will occur.
+     *
+     * @param zipCode     Zip code of the area.
+     * @param countryCode ISO 3166 country code. (e.g. uk)
+     * @param listener    {@link CurrentWeatherListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(long zipCode,
                                          @NonNull String countryCode,
@@ -208,7 +241,12 @@ public class OpenWeatherApi {
                 });
     }
 
-
+    /**
+     * Get the current weather condition for more than one city by sending the list of city ids.
+     *
+     * @param idsOfCities List of the city ids
+     * @param listener    {@link MultipleCitiesWeatherListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getMultipleCitiesCurrentWeather(ArrayList<String> idsOfCities,
                                                        @NonNull final MultipleCitiesWeatherListener listener) {
@@ -244,8 +282,11 @@ public class OpenWeatherApi {
      ***********************************************************************************************/
 
     /**
-     * @param cityId
-     * @param listener
+     * Get weather forecast for every three hours for given city id. This will return maximum 5 days
+     * forecast if available.
+     *
+     * @param cityId   id of the city to get the forecast
+     * @param listener {@link ForecastListener} to get the forecast data.
      */
     @SuppressWarnings("WeakerAccess")
     public static void getThreeHoursForecast(int cityId,
@@ -253,6 +294,13 @@ public class OpenWeatherApi {
         getThreeHoursForecast(cityId, NO_LIMIT, listener);
     }
 
+    /**
+     * Get weather forecast for every three hours for given city id.
+     *
+     * @param cityId   id of the city to get the forecast
+     * @param limit    number of forecast result required. The value must be between 1 to 40.
+     * @param listener {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getThreeHoursForecast(int cityId,
                                              int limit,
@@ -284,12 +332,28 @@ public class OpenWeatherApi {
                 });
     }
 
+    /**
+     * Get weather forecast for every three hours for given city name. If the city name does not mach
+     * to any location error will occur. This will return maximum 5 days
+     * forecast if available.
+     *
+     * @param cityName name of the city. (e.g. Landon)
+     * @param listener {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getThreeHoursForecast(@NonNull String cityName,
                                              @NonNull final ForecastListener listener) {
         getThreeHoursForecast(cityName, null, NO_LIMIT, listener);
     }
 
+    /**
+     * Get weather forecast for every three hours for given city name. If the city name does not mach
+     * to any location error will occur.
+     *
+     * @param cityName name of the city. (e.g. Landon)
+     * @param limit    number of forecast result required. The value must be between 1 to 40.
+     * @param listener {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getThreeHoursForecast(@NonNull String cityName,
                                              int limit,
@@ -297,6 +361,14 @@ public class OpenWeatherApi {
         getThreeHoursForecast(cityName, null, limit, listener);
     }
 
+    /**
+     * Get weather forecast for every three hours for given city name. If the city name does not mach
+     * to any location error will occur. This will return maximum 5 days forecast if available.
+     *
+     * @param cityName    name of the city. (e.g. Landon)
+     * @param countryCode ISO 3166 country code. (e.g. uk)
+     * @param listener    {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getThreeHoursForecast(@NonNull String cityName,
                                              @Nullable String countryCode,
@@ -304,6 +376,15 @@ public class OpenWeatherApi {
         getThreeHoursForecast(cityName, countryCode, NO_LIMIT, listener);
     }
 
+    /**
+     * Get weather forecast for every three hours for given city name. If the city name does not mach
+     * to any location error will occur.
+     *
+     * @param cityName    name of the city. (e.g. Landon)
+     * @param countryCode ISO 3166 country code. (e.g. uk)
+     * @param limit       number of forecast result required. The value must be between 1 to 40.
+     * @param listener    {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getThreeHoursForecast(@NonNull String cityName,
                                              @Nullable String countryCode,
@@ -337,6 +418,14 @@ public class OpenWeatherApi {
                 });
     }
 
+    /**
+     * Get weather forecast for every three hours for given geo point. This will return maximum 5 days forecast
+     * if available.
+     *
+     * @param latitude  latitude of the point
+     * @param longitude latitude of the point
+     * @param listener  {@link ForecastListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getThreeHoursForecast(double latitude,
                                              double longitude,
@@ -344,6 +433,14 @@ public class OpenWeatherApi {
         getThreeHoursForecast(latitude, longitude, NO_LIMIT, listener);
     }
 
+    /**
+     * Get weather forecast for every three hours for given geo point.
+     *
+     * @param latitude  latitude of the point
+     * @param limit     number of forecast result required. The value must be between 1 to 40.
+     * @param longitude latitude of the point
+     * @param listener  {@link CurrentWeatherListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getThreeHoursForecast(double latitude,
                                              double longitude,
@@ -383,8 +480,10 @@ public class OpenWeatherApi {
      * DAILY FORECAST FOR MAX 16 DAYS FORECAST API
      ***********************************************************************************************/
     /**
-     * @param cityId
-     * @param listener
+     * Get daily weather forecast. This will return maximum 16 days forecast if available.
+     *
+     * @param cityId   id of the city to get the forecast
+     * @param listener {@link ForecastListener} to get the forecast data.
      */
     @SuppressWarnings("WeakerAccess")
     public static void getDailyForecast(int cityId,
@@ -392,6 +491,13 @@ public class OpenWeatherApi {
         getDailyForecast(cityId, NO_LIMIT, listener);
     }
 
+    /**
+     * Get daily weather forecast.
+     *
+     * @param cityId   id of the city to get the forecast
+     * @param limit    number of forecast result required. The value must be between 1 to 16.
+     * @param listener {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getDailyForecast(int cityId,
                                         int limit,
@@ -423,12 +529,26 @@ public class OpenWeatherApi {
                 });
     }
 
+    /**
+     * Get daily weather forecast. If the city name does not match to any location error will occur.
+     * This will return maximum 16 days forecast if available.
+     *
+     * @param cityName name of the city. (e.g. Landon)
+     * @param listener {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getDailyForecast(@NonNull String cityName,
                                         @NonNull final ForecastListener listener) {
         getDailyForecast(cityName, null, NO_LIMIT, listener);
     }
 
+    /**
+     * Get daily weather forecast. If the city name does not match to any location error will occur.
+     *
+     * @param cityName name of the city. (e.g. Landon)
+     * @param limit    number of forecast result required. The value must be between 1 to 16.
+     * @param listener {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getDailyForecast(@NonNull String cityName,
                                         int limit,
@@ -436,6 +556,14 @@ public class OpenWeatherApi {
         getDailyForecast(cityName, null, limit, listener);
     }
 
+    /**
+     * Get daily weather forecast. If the city name does not match to any location error will occur.
+     * This will return maximum 16 days forecast if available.
+     *
+     * @param cityName    name of the city. (e.g. Landon)
+     * @param countryCode ISO 3166 country code. (e.g. uk)
+     * @param listener    {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getDailyForecast(@NonNull String cityName,
                                         @Nullable String countryCode,
@@ -443,6 +571,14 @@ public class OpenWeatherApi {
         getDailyForecast(cityName, countryCode, NO_LIMIT, listener);
     }
 
+    /**
+     * Get daily weather forecast. If the city name does not match to any location error will occur.
+     *
+     * @param cityName    name of the city. (e.g. Landon)
+     * @param countryCode ISO 3166 country code. (e.g. uk)
+     * @param limit       number of forecast result required. The value must be between 1 to 16.
+     * @param listener    {@link ForecastListener} to get the forecast data.
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getDailyForecast(@NonNull String cityName,
                                         @Nullable String countryCode,
@@ -476,6 +612,14 @@ public class OpenWeatherApi {
                 });
     }
 
+    /**
+     * Get daily weather forecast for given geo point. This will return maximum 16 days forecast if
+     * available.
+     *
+     * @param latitude  latitude of the point
+     * @param longitude latitude of the point
+     * @param listener  {@link ForecastListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getDailyForecast(double latitude,
                                         double longitude,
@@ -483,6 +627,14 @@ public class OpenWeatherApi {
         getDailyForecast(latitude, longitude, NO_LIMIT, listener);
     }
 
+    /**
+     * Get daily weather forecast for given geo point.
+     *
+     * @param latitude  latitude of the point
+     * @param limit     number of forecast result required. The value must be between 1 to 16.
+     * @param longitude latitude of the point
+     * @param listener  {@link ForecastListener} to listen the response
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getDailyForecast(double latitude,
                                         double longitude,
