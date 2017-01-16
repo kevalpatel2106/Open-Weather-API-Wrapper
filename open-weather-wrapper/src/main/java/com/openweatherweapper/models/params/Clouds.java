@@ -8,12 +8,12 @@ public class Clouds {
 
     @SerializedName("all")
     @Expose
-    private Integer cloudiness;
+    private Double cloudiness;
 
     /**
      * @return Cloudiness in %
      */
-    public Integer getCloudiness() {
+    public Double getCloudiness() {
         return cloudiness;
     }
 }

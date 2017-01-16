@@ -13,12 +13,12 @@ public class Rain {
 
     @SerializedName("3h")
     @Expose
-    private int last3hVolume;
+    private Double last3hVolume;
 
     /**
      * @return Rain volume for the last 3 hours
      */
-    public int getLast3hVolume() {
+    public Double getLast3hVolume() {
         return last3hVolume;
     }
 }

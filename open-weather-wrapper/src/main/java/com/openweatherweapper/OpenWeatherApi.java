@@ -316,7 +316,7 @@ public class OpenWeatherApi {
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<WeatherForecast> observable = apiService
                 .getThreeHoursForecast(countryCode == null ? cityName : (cityName + countryCode),
-                        (limit < 0 ? limit + "" : ""), sUnit, sApiKey);
+                        (limit > 0 ? limit + "" : ""), sUnit, sApiKey);
 
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
@@ -356,7 +356,7 @@ public class OpenWeatherApi {
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<WeatherForecast> observable = apiService
                 .getThreeHoursForecast(latitude, longitude,
-                        (limit < 0 ? limit + "" : ""),
+                        (limit > 0 ? limit + "" : ""),
                         sUnit, sApiKey);
 
         observable.observeOn(AndroidSchedulers.mainThread())
@@ -382,5 +382,138 @@ public class OpenWeatherApi {
     /***********************************************************************************************
      * DAILY FORECAST FOR MAX 16 DAYS FORECAST API
      ***********************************************************************************************/
+    /**
+     * @param cityId
+     * @param listener
+     */
+    @SuppressWarnings("WeakerAccess")
+    public static void getDailyForecast(int cityId,
+                                        @NonNull final ForecastListener listener) {
+        getDailyForecast(cityId, NO_LIMIT, listener);
+    }
 
+    @SuppressWarnings("WeakerAccess")
+    public static void getDailyForecast(int cityId,
+                                        int limit,
+                                        @NonNull final ForecastListener listener) {
+
+        //Check if the sdk initialized?
+        checkInitializeOrThrow();
+
+        APIService apiService = RetrofitBuilder.getApiService();
+        Observable<WeatherForecast> observable = apiService
+                .getDailyForecast(cityId, (limit > 0 ? limit + "" : ""), sUnit, sApiKey);
+
+        observable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Observer<WeatherForecast>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(WeatherForecast weatherForecasts) {
+                        listener.onResponse(weatherForecasts);
+                    }
+                });
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getDailyForecast(@NonNull String cityName,
+                                        @NonNull final ForecastListener listener) {
+        getDailyForecast(cityName, null, NO_LIMIT, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getDailyForecast(@NonNull String cityName,
+                                        int limit,
+                                        @NonNull final ForecastListener listener) {
+        getDailyForecast(cityName, null, limit, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getDailyForecast(@NonNull String cityName,
+                                        @Nullable String countryCode,
+                                        @NonNull final ForecastListener listener) {
+        getDailyForecast(cityName, countryCode, NO_LIMIT, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getDailyForecast(@NonNull String cityName,
+                                        @Nullable String countryCode,
+                                        int limit,
+                                        @NonNull final ForecastListener listener) {
+
+        //Check if the sdk initialized?
+        checkInitializeOrThrow();
+
+        APIService apiService = RetrofitBuilder.getApiService();
+        Observable<WeatherForecast> observable = apiService
+                .getDailyForecast(countryCode == null ? cityName : (cityName + countryCode),
+                        (limit > 0 ? limit + "" : ""), sUnit, sApiKey);
+
+        observable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Observer<WeatherForecast>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(WeatherForecast weatherForecasts) {
+                        listener.onResponse(weatherForecasts);
+                    }
+                });
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getDailyForecast(double latitude,
+                                        double longitude,
+                                        @NonNull final ForecastListener listener) {
+        getDailyForecast(latitude, longitude, NO_LIMIT, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getDailyForecast(double latitude,
+                                        double longitude,
+                                        int limit,
+                                        @NonNull final ForecastListener listener) {
+
+        //Check if the sdk initialized?
+        checkInitializeOrThrow();
+
+        APIService apiService = RetrofitBuilder.getApiService();
+        Observable<WeatherForecast> observable = apiService
+                .getDailyForecast(latitude, longitude,
+                        (limit > 0 ? limit + "" : ""),
+                        sUnit, sApiKey);
+
+        observable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Observer<WeatherForecast>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(WeatherForecast weatherForecasts) {
+                        listener.onResponse(weatherForecasts);
+                    }
+                });
+    }
 }

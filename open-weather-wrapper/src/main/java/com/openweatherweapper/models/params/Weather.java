@@ -13,7 +13,7 @@ public class Weather {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private long id;
     @SerializedName("main")
     @Expose
     private String main;
@@ -27,7 +27,7 @@ public class Weather {
     /**
      * @return Weather condition id
      */
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 

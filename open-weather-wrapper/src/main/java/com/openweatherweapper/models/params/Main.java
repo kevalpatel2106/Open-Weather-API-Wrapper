@@ -11,10 +11,10 @@ public class    Main {
     private Double temp;
     @SerializedName("pressure")
     @Expose
-    private Integer pressure;
+    private Double pressure;
     @SerializedName("humidity")
     @Expose
-    private Integer humidity;
+    private Double humidity;
     @SerializedName("temp_min")
     @Expose
     private Double tempMin;
@@ -38,14 +38,14 @@ public class    Main {
     /**
      * @return Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
      */
-    public Integer getPressure() {
+    public Double getPressure() {
         return pressure;
     }
 
     /**
      * @return Humidity, %
      */
-    public Integer getHumidity() {
+    public Double getHumidity() {
         return humidity;
     }
 

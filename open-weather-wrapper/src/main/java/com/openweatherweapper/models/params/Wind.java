@@ -16,7 +16,7 @@ public class Wind {
     private Double speed;
     @SerializedName("deg")
     @Expose
-    private Integer degree;
+    private Double degree;
 
     /**
      * @return Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.
@@ -28,7 +28,7 @@ public class Wind {
     /**
      * @return Wind direction, degrees (meteorological)
      */
-    public Integer getDegree() {
+    public Double getDegree() {
         return degree;
     }
 }

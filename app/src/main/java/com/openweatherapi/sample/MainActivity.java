@@ -2,6 +2,7 @@ package com.openweatherapi.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,7 +11,9 @@ import android.widget.Toast;
 import com.openweatherweapper.OpenWeatherApi;
 import com.openweatherweapper.Unit;
 import com.openweatherweapper.interfaces.CurrentWeatherListener;
+import com.openweatherweapper.interfaces.ForecastListener;
 import com.openweatherweapper.models.CurrentWeather;
+import com.openweatherweapper.models.WeatherForecast;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -73,7 +76,17 @@ public class MainActivity extends AppCompatActivity {
                 if (!s.isEmpty())
                     OpenWeatherApi.getCurrentWeather(s, mCurrentWeatherListener);
 
+                OpenWeatherApi.getThreeHoursForecast("Landon,uk", new ForecastListener() {
+                    @Override
+                    public void onResponse(WeatherForecast weatherForecasts) {
+                        Log.d("Three hour", "Success");
+                    }
 
+                    @Override
+                    public void onError(String message) {
+                        Log.d("Three hour", message);
+                    }
+                });
             }
         });
     }
