@@ -21,6 +21,9 @@ public class MultipleCitiesWeathers {
     @Expose
     private List<CurrentWeather> weatherInfos = new ArrayList<>();
 
+    /**
+     * @return list of {@link CurrentWeather} information for each city
+     */
     public List<CurrentWeather> getWeatherInfos() {
         return weatherInfos;
     }

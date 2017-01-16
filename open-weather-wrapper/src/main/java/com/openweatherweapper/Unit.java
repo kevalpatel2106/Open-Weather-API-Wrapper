@@ -14,8 +14,28 @@ import java.security.PublicKey;
 
 @SuppressWarnings("WeakerAccess")
 public class Unit {
+    /**
+     * Matrix units.
+     * <p>
+     * <li>Temperature: Celsius</li>
+     * <li>Speed: meter/sec</li>
+     */
     public static final String MATRIX = "metric";
+
+    /**
+     * Standard international units.
+     * <p>
+     * <li>Temperature: Kelvin</li>
+     * <li>Speed: meter/sec</li>
+     */
     public static final String STANDARD = "";
+
+    /**
+     * Imperial units.
+     * <p>
+     * <li>Temperature: Fahrenheit</li>
+     * <li>Speed: miles/hour</li>
+     */
     public static final String IMPERIAL = "imperial";
 
 

@@ -32,29 +32,48 @@ public class Forecast {
     private Rain rain;
 
     /**
-     *
      * @return Time of data forecasted, unix, UTC
      */
     public Long getForecastTime() {
         return forecastTime;
     }
 
+    /**
+     * @return {@link Main}
+     * @see Main
+     */
     public Main getMain() {
         return main;
     }
 
-    public java.util.List<Weather> getWeather() {
+    /**
+     * @return Weather information
+     * @see Weather
+     */
+    public List<Weather> getWeather() {
         return weather;
     }
 
+    /**
+     * @return Get cloudiness information
+     * @see Clouds
+     */
     public Clouds getClouds() {
         return clouds;
     }
 
+    /**
+     * @return Wind information
+     * @see Wind
+     */
     public Wind getWind() {
         return wind;
     }
 
+    /**
+     * @return Rain information
+     * @see Rain
+     */
     public Rain getRain() {
         return rain;
     }

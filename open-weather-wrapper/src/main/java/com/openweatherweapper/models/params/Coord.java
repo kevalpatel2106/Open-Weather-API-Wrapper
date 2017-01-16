@@ -4,6 +4,9 @@ package com.openweatherweapper.models.params;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Latitude and longitude coordinates for the geo point.
+ */
 public class Coord {
 
     @SerializedName("lon")

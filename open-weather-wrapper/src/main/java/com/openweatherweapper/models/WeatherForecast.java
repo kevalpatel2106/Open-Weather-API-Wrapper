@@ -25,13 +25,22 @@ public class WeatherForecast {
     @Expose
     private List<Forecast> forecast = null;
 
+    /**
+     * @return City information
+     * @see City
+     */
     public City getCity() {
         return city;
     }
+
     public Long getNoOfForecastResult() {
         return noOfForecastResult;
     }
 
+    /**
+     * @return List of weather forecast for timed interval.
+     * @see Forecast
+     */
     public List<Forecast> getForecast() {
         return forecast;
     }

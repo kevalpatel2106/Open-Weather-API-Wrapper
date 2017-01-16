@@ -22,22 +22,38 @@ public class City {
     @Expose
     private long population;
 
+    /**
+     * @return id of the city
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * @return nam eof the city
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return Coordinates of the city
+     * @see Coord
+     */
     public Coord getCoord() {
         return coord;
     }
 
+    /**
+     * @return ISO 3166 country code.
+     */
     public String getCountry() {
         return country;
     }
 
+    /**
+     * @return Population of the city. If not available, value will be 0.
+     */
     public Long getPopulation() {
         return population;
     }

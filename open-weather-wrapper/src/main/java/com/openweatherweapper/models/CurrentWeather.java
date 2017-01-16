@@ -130,10 +130,18 @@ public class CurrentWeather {
         return cityName;
     }
 
+    /**
+     * @return Rain information
+     * @see Rain
+     */
     public Rain getRainInfo() {
         return rainInfo;
     }
 
+    /**
+     * @return Snow information
+     * @see Snow
+     */
     public Snow getSnowInfo() {
         return snowInfo;
     }
