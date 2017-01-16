@@ -4,6 +4,11 @@ package com.openweatherweapper.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Wind information.
+ *
+ * @author {@link 'https://github.com/kevalpatel2106'}
+ */
 public class Wind {
 
     @SerializedName("speed")
@@ -11,42 +16,19 @@ public class Wind {
     private Double speed;
     @SerializedName("deg")
     @Expose
-    private Integer deg;
+    private Integer degree;
 
     /**
-     * 
-     * @return
-     *     The speed
+     * @return Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.
      */
     public Double getSpeed() {
         return speed;
     }
 
     /**
-     * 
-     * @param speed
-     *     The speed
+     * @return Wind direction, degrees (meteorological)
      */
-    public void setSpeed(Double speed) {
-        this.speed = speed;
+    public Integer getDegree() {
+        return degree;
     }
-
-    /**
-     * 
-     * @return
-     *     The deg
-     */
-    public Integer getDeg() {
-        return deg;
-    }
-
-    /**
-     * 
-     * @param deg
-     *     The deg
-     */
-    public void setDeg(Integer deg) {
-        this.deg = deg;
-    }
-
 }

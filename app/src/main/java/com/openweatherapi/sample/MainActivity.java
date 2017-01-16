@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.openweatherweapper.OpenWeatherApi;
 import com.openweatherweapper.interfaces.CurrentWeatherResponseListener;
 import com.openweatherweapper.models.CurrentWeather;
-import com.openweatherweapper.models.Main;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -28,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
     private CurrentWeatherResponseListener mCurrentWeatherResponseListener = new CurrentWeatherResponseListener() {
         @Override
         public void onResponse(CurrentWeather currentWeather) {
-            cityTv.setText(currentWeather.getName());
+            cityTv.setText(currentWeather.getCityName());
 
             //set the temperature
             tempHighTv.setText(currentWeather.getMain().getTempMax() + " " + getString(R.string.degree_fernhight));
             tempLowTv.setText(currentWeather.getMain().getTempMin() + " " + getString(R.string.degree_fernhight));
             tempTv.setText(currentWeather.getMain().getTemp() + " " + getString(R.string.degree_fernhight));
 
-            windSpeedTv.setText(currentWeather.getWind().getSpeed() + " km/s");
+            windSpeedTv.setText(currentWeather.getWindInfo().getSpeed() + " km/s");
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm a", Locale.getDefault());
             sunriseTv.setText(dateFormat.format(currentWeather.getSys().getSunrise()));

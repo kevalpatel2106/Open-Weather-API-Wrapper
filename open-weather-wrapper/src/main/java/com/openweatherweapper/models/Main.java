@@ -21,95 +21,63 @@ public class Main {
     @SerializedName("temp_max")
     @Expose
     private Double tempMax;
+    @SerializedName("sea_level")
+    @Expose
+    private Double seaLevelPressure;
+    @SerializedName("grnd_level")
+    @Expose
+    private Double groundLevelPressure;
 
     /**
-     * 
-     * @return
-     *     The temp
+     * @return Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
      */
     public Double getTemp() {
         return temp;
     }
 
     /**
-     * 
-     * @param temp
-     *     The temp
-     */
-    public void setTemp(Double temp) {
-        this.temp = temp;
-    }
-
-    /**
-     * 
-     * @return
-     *     The pressure
+     * @return Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
      */
     public Integer getPressure() {
         return pressure;
     }
 
     /**
-     * 
-     * @param pressure
-     *     The pressure
-     */
-    public void setPressure(Integer pressure) {
-        this.pressure = pressure;
-    }
-
-    /**
-     * 
-     * @return
-     *     The humidity
+     * @return Humidity, %
      */
     public Integer getHumidity() {
         return humidity;
     }
 
     /**
-     * 
-     * @param humidity
-     *     The humidity
-     */
-    public void setHumidity(Integer humidity) {
-        this.humidity = humidity;
-    }
-
-    /**
-     * 
-     * @return
-     *     The tempMin
+     * @return Minimum temperature at the moment. This is deviation from current temp that is possible
+     * for large cities and megalopolises geographically expanded (use these parameter optionally).
+     * Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
      */
     public Double getTempMin() {
         return tempMin;
     }
 
     /**
-     * 
-     * @param tempMin
-     *     The temp_min
-     */
-    public void setTempMin(Double tempMin) {
-        this.tempMin = tempMin;
-    }
-
-    /**
-     * 
-     * @return
-     *     The tempMax
+     * @return Maximum temperature at the moment. This is deviation from current temp that is possible
+     * for large cities and megalopolises geographically expanded (use these parameter optionally).
+     * Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
      */
     public Double getTempMax() {
         return tempMax;
     }
 
     /**
-     * 
-     * @param tempMax
-     *     The temp_max
+     * @return Atmospheric pressure on the sea level, hPa
      */
-    public void setTempMax(Double tempMax) {
-        this.tempMax = tempMax;
+    public Double getSeaLevelPressure() {
+        return seaLevelPressure;
     }
 
+    /**
+     * @return Atmospheric pressure on the ground level, hPa
+     */
+    public Double getGroundLevelPressure() {
+        return groundLevelPressure;
+    }
 }

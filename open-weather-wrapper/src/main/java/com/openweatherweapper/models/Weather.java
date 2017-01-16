@@ -4,6 +4,11 @@ package com.openweatherweapper.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * This class contains more info Weather condition codes.
+ *
+ * @author {@link 'https://github.com/kevalpatel2106'}x
+ */
 public class Weather {
 
     @SerializedName("id")
@@ -20,59 +25,30 @@ public class Weather {
     private String icon;
 
     /**
-     * @return The id
+     * @return Weather condition id
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     * @param id The id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * @return The main
+     * @return Group of weather parameters (Rain, Snow, Extreme etc.)
      */
     public String getMain() {
         return main;
     }
 
     /**
-     * @param main The main
-     */
-    public void setMain(String main) {
-        this.main = main;
-    }
-
-    /**
-     * @return The description
+     * @return Weather condition within the group
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * @param description The description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * @return The icon
+     * @return Weather icon id
      */
     public String getIcon() {
         return icon;
     }
-
-    /**
-     * @param icon The icon
-     */
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
 }

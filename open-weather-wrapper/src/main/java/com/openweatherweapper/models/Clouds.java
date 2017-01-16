@@ -8,24 +8,12 @@ public class Clouds {
 
     @SerializedName("all")
     @Expose
-    private Integer all;
+    private Integer cloudiness;
 
     /**
-     * 
-     * @return
-     *     The all
+     * @return Cloudiness in %
      */
-    public Integer getAll() {
-        return all;
+    public Integer getCloudiness() {
+        return cloudiness;
     }
-
-    /**
-     * 
-     * @param all
-     *     The all
-     */
-    public void setAll(Integer all) {
-        this.all = all;
-    }
-
 }

@@ -11,13 +11,10 @@ public class CurrentWeather {
 
     @SerializedName("coord")
     @Expose
-    private Coord coord;
+    private Coord coordinates;
     @SerializedName("weather")
     @Expose
     private List<Weather> weather = new ArrayList<Weather>();
-    @SerializedName("base")
-    @Expose
-    private String base;
     @SerializedName("main")
     @Expose
     private Main main;
@@ -26,240 +23,110 @@ public class CurrentWeather {
     private Integer visibility;
     @SerializedName("wind")
     @Expose
-    private Wind wind;
+    private Wind windInfo;
     @SerializedName("clouds")
     @Expose
-    private Clouds clouds;
-    @SerializedName("dt")
+    private Clouds cloudsInfo;
+    @SerializedName("createdDate")
     @Expose
-    private Integer dt;
+    private long createdDate;
     @SerializedName("sys")
     @Expose
     private Sys sys;
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private long cityId;
     @SerializedName("name")
     @Expose
-    private String name;
-    @SerializedName("cod")
+    private String cityName;
+    @SerializedName("rain")
     @Expose
-    private Integer cod;
+    private Rain rainInfo;
+    @SerializedName("snow")
+    @Expose
+    private Snow snowInfo;
 
     /**
-     * 
-     * @return
-     *     The coord
+     * @return Coordinates
+     * @see Coord
      */
-    public Coord getCoord() {
-        return coord;
+    public Coord getCoordinates() {
+        return coordinates;
     }
 
     /**
-     * 
-     * @param coord
-     *     The coord
-     */
-    public void setCoord(Coord coord) {
-        this.coord = coord;
-    }
-
-    /**
-     * 
-     * @return
-     *     The weather
+     * @return Weather information
+     * @see Weather
      */
     public List<Weather> getWeather() {
         return weather;
     }
 
     /**
-     * 
-     * @param weather
-     *     The weather
-     */
-    public void setWeather(List<Weather> weather) {
-        this.weather = weather;
-    }
-
-    /**
-     * 
-     * @return
-     *     The base
-     */
-    public String getBase() {
-        return base;
-    }
-
-    /**
-     * 
-     * @param base
-     *     The base
-     */
-    public void setBase(String base) {
-        this.base = base;
-    }
-
-    /**
-     * 
-     * @return
-     *     The main
+     * @return {@link Main}
+     * @see Main
      */
     public Main getMain() {
         return main;
     }
 
     /**
-     * 
-     * @param main
-     *     The main
+     * @return The visibility
      */
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
-    /**
-     * 
-     * @return
-     *     The visibility
-     */
-    public Integer getVisibility() {
+    public int getVisibility() {
         return visibility;
     }
 
     /**
-     * 
-     * @param visibility
-     *     The visibility
+     * @return Wind information
+     * @see Wind
      */
-    public void setVisibility(Integer visibility) {
-        this.visibility = visibility;
+    public Wind getWindInfo() {
+        return windInfo;
     }
 
     /**
-     * 
-     * @return
-     *     The wind
+     * @return Get cloudiness information
+     * @see Clouds
      */
-    public Wind getWind() {
-        return wind;
+    public Clouds getCloudsInfo() {
+        return cloudsInfo;
     }
 
     /**
-     * 
-     * @param wind
-     *     The wind
+     * @return Time of data calculation, unix, UTC
      */
-    public void setWind(Wind wind) {
-        this.wind = wind;
+    public long getCreatedDate() {
+        return createdDate;
     }
 
     /**
-     * 
-     * @return
-     *     The clouds
-     */
-    public Clouds getClouds() {
-        return clouds;
-    }
-
-    /**
-     * 
-     * @param clouds
-     *     The clouds
-     */
-    public void setClouds(Clouds clouds) {
-        this.clouds = clouds;
-    }
-
-    /**
-     * 
-     * @return
-     *     The dt
-     */
-    public Integer getDt() {
-        return dt;
-    }
-
-    /**
-     * 
-     * @param dt
-     *     The dt
-     */
-    public void setDt(Integer dt) {
-        this.dt = dt;
-    }
-
-    /**
-     * 
-     * @return
-     *     The sys
+     * @return System parameters
+     * @see Sys
      */
     public Sys getSys() {
         return sys;
     }
 
     /**
-     * 
-     * @param sys
-     *     The sys
+     * @return City id
      */
-    public void setSys(Sys sys) {
-        this.sys = sys;
+    public long getCityId() {
+        return cityId;
     }
 
     /**
-     * 
-     * @return
-     *     The id
+     * @return City cityName
      */
-    public Integer getId() {
-        return id;
+    public String getCityName() {
+        return cityName;
     }
 
-    /**
-     * 
-     * @param id
-     *     The id
-     */
-    public void setId(Integer id) {
-        this.id = id;
+    public Rain getRainInfo() {
+        return rainInfo;
     }
 
-    /**
-     * 
-     * @return
-     *     The name
-     */
-    public String getName() {
-        return name;
+    public Snow getSnowInfo() {
+        return snowInfo;
     }
-
-    /**
-     * 
-     * @param name
-     *     The name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 
-     * @return
-     *     The cod
-     */
-    public Integer getCod() {
-        return cod;
-    }
-
-    /**
-     * 
-     * @param cod
-     *     The cod
-     */
-    public void setCod(Integer cod) {
-        this.cod = cod;
-    }
-
 }

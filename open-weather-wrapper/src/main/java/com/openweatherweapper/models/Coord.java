@@ -14,39 +14,16 @@ public class Coord {
     private Double lat;
 
     /**
-     * 
-     * @return
-     *     The lon
+     * @return City geo location, longitude
      */
     public Double getLon() {
         return lon;
     }
 
     /**
-     * 
-     * @param lon
-     *     The lon
-     */
-    public void setLon(Double lon) {
-        this.lon = lon;
-    }
-
-    /**
-     * 
-     * @return
-     *     The lat
+     * @return City geo location, latitude
      */
     public Double getLat() {
         return lat;
     }
-
-    /**
-     * 
-     * @param lat
-     *     The lat
-     */
-    public void setLat(Double lat) {
-        this.lat = lat;
-    }
-
 }
