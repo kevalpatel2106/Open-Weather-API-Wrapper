@@ -2,7 +2,7 @@
 
 [ ![Download](https://api.bintray.com/packages/kevalpatel2106/maven/Open-Weather-API-Wrapper/images/download.svg) ](https://bintray.com/kevalpatel2106/maven/Open-Weather-API-Wrapper/_latestVersion)
 
-Open Weather API Wrapper is an Android wrapper for the APIs of https://openweathermap.org. This library handles all the netweork operations and parameter validations on behalf of the developer.
+Open Weather API Wrapper is an Android wrapper for the APIs of https://openweathermap.org. This library handles all the network operations and parameter validations on behalf of the developer.
 
 ##Dependency:
 - Add below lines to `app/build.gradle` file of your project.
@@ -15,7 +15,7 @@ dependencies {
 ##How to use this library?:
 - **Initialization:**
 
-Initialize the library in your launch activity by providing the open weather api key and the unit system you want to use throuout the application.
+Initialize the library in your launch activity by providing the open weather api key and the unit system you want to use throughout the application.
 If you don't have the open weather api key, you can generate it from [here](http://openweathermap.org/appid).
 ```java
    OpenWeatherApi.initialize("YOUR API KEY", Unit.STANDARD);
