@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
                 String s = cityEt.getText().toString().trim();
                 if (!s.isEmpty())
                     OpenWeatherApi.getCurrentWeather(s, mCurrentWeatherListener);
+
+
             }
         });
     }

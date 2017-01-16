@@ -7,9 +7,11 @@ import android.text.TextUtils;
 import com.openweatherweapper.exception.InvalidApiKeyException;
 import com.openweatherweapper.exception.NotInitilizedException;
 import com.openweatherweapper.interfaces.CurrentWeatherListener;
+import com.openweatherweapper.interfaces.ForecastListener;
 import com.openweatherweapper.interfaces.MultipleCitiesWeatherListener;
 import com.openweatherweapper.models.CurrentWeather;
 import com.openweatherweapper.models.MultipleCitiesWeathers;
+import com.openweatherweapper.models.WeatherForecast;
 
 import java.util.ArrayList;
 
@@ -226,4 +228,100 @@ public class OpenWeatherApi {
                 });
     }
 
+    @SuppressWarnings("WeakerAccess")
+    public static void getFiveDayForecast(int cityId,
+                                          @NonNull final ForecastListener listener) {
+
+        //Check if the sdk initialized?
+        checkInitializeOrThrow();
+
+        APIService apiService = RetrofitBuilder.getApiService();
+        Observable<WeatherForecast> observable = apiService
+                .getFiveDayForecast(cityId, sUnit, sApiKey);
+
+        observable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Observer<WeatherForecast>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(WeatherForecast weatherForecasts) {
+                        listener.onResponse(weatherForecasts);
+                    }
+                });
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getFiveDayForecast(@NonNull String cityName,
+                                          @Nullable String countryCode,
+                                          @NonNull final ForecastListener listener) {
+
+        //Check if the sdk initialized?
+        checkInitializeOrThrow();
+
+        APIService apiService = RetrofitBuilder.getApiService();
+        Observable<WeatherForecast> observable = apiService
+                .getFiveDayForecast(countryCode == null ? cityName : (cityName + countryCode), sUnit, sApiKey);
+
+        observable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Observer<WeatherForecast>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(WeatherForecast weatherForecasts) {
+                        listener.onResponse(weatherForecasts);
+                    }
+                });
+    }
+
+    public static void getFiveDayForecast(@NonNull String cityName,
+                                          @NonNull final ForecastListener listener) {
+        getFiveDayForecast(cityName, null, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getFiveDayForecast(double latitude,
+                                          double longitude,
+                                          @NonNull final ForecastListener listener) {
+
+        //Check if the sdk initialized?
+        checkInitializeOrThrow();
+
+        APIService apiService = RetrofitBuilder.getApiService();
+        Observable<WeatherForecast> observable = apiService
+                .getFiveDayForecast(latitude, longitude, sUnit, sApiKey);
+
+        observable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Observer<WeatherForecast>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(WeatherForecast weatherForecasts) {
+                        listener.onResponse(weatherForecasts);
+                    }
+                });
+    }
 }

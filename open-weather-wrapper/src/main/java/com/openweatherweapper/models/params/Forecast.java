@@ -14,7 +14,7 @@ import java.util.List;
 public class Forecast {
     @SerializedName("dt")
     @Expose
-    private Long dt;
+    private Long forecastTime;
     @SerializedName("main")
     @Expose
     private Main main;
@@ -31,51 +31,31 @@ public class Forecast {
     @Expose
     private Rain rain;
 
-    public Long getDt() {
-        return dt;
-    }
-
-    public void setDt(Long dt) {
-        this.dt = dt;
+    /**
+     *
+     * @return Time of data forecasted, unix, UTC
+     */
+    public Long getForecastTime() {
+        return forecastTime;
     }
 
     public Main getMain() {
         return main;
     }
 
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
     public java.util.List<Weather> getWeather() {
         return weather;
-    }
-
-    public void setWeather(java.util.List<Weather> weather) {
-        this.weather = weather;
     }
 
     public Clouds getClouds() {
         return clouds;
     }
 
-    public void setClouds(Clouds clouds) {
-        this.clouds = clouds;
-    }
-
     public Wind getWind() {
         return wind;
     }
 
-    public void setWind(Wind wind) {
-        this.wind = wind;
-    }
-
     public Rain getRain() {
         return rain;
-    }
-
-    public void setRain(Rain rain) {
-        this.rain = rain;
     }
 }
