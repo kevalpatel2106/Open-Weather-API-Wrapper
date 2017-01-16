@@ -240,7 +240,7 @@ public class OpenWeatherApi {
     }
 
     /***********************************************************************************************
-     * FIVE DAYS FORECAST API
+     * THREE HOURLY FORECAST FOR MAX 5 DAYS FORECAST API
      ***********************************************************************************************/
 
     /**
@@ -248,22 +248,22 @@ public class OpenWeatherApi {
      * @param listener
      */
     @SuppressWarnings("WeakerAccess")
-    public static void getFiveDayForecast(int cityId,
-                                          @NonNull final ForecastListener listener) {
-        getFiveDayForecast(cityId, NO_LIMIT, listener);
+    public static void getThreeHoursForecast(int cityId,
+                                             @NonNull final ForecastListener listener) {
+        getThreeHoursForecast(cityId, NO_LIMIT, listener);
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static void getFiveDayForecast(int cityId,
-                                          int limit,
-                                          @NonNull final ForecastListener listener) {
+    public static void getThreeHoursForecast(int cityId,
+                                             int limit,
+                                             @NonNull final ForecastListener listener) {
 
         //Check if the sdk initialized?
         checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<WeatherForecast> observable = apiService
-                .getFiveDayForecast(cityId, (limit < 0 ? limit + "" : ""), sUnit, sApiKey);
+                .getThreeHoursForecast(cityId, (limit < 0 ? limit + "" : ""), sUnit, sApiKey);
 
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
@@ -285,37 +285,37 @@ public class OpenWeatherApi {
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static void getFiveDayForecast(@NonNull String cityName,
-                                          @NonNull final ForecastListener listener) {
-        getFiveDayForecast(cityName, null, NO_LIMIT, listener);
+    public static void getThreeHoursForecast(@NonNull String cityName,
+                                             @NonNull final ForecastListener listener) {
+        getThreeHoursForecast(cityName, null, NO_LIMIT, listener);
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static void getFiveDayForecast(@NonNull String cityName,
-                                          int limit,
-                                          @NonNull final ForecastListener listener) {
-        getFiveDayForecast(cityName, null, limit, listener);
+    public static void getThreeHoursForecast(@NonNull String cityName,
+                                             int limit,
+                                             @NonNull final ForecastListener listener) {
+        getThreeHoursForecast(cityName, null, limit, listener);
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static void getFiveDayForecast(@NonNull String cityName,
-                                          @Nullable String countryCode,
-                                          @NonNull final ForecastListener listener) {
-        getFiveDayForecast(cityName, countryCode, NO_LIMIT, listener);
+    public static void getThreeHoursForecast(@NonNull String cityName,
+                                             @Nullable String countryCode,
+                                             @NonNull final ForecastListener listener) {
+        getThreeHoursForecast(cityName, countryCode, NO_LIMIT, listener);
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static void getFiveDayForecast(@NonNull String cityName,
-                                          @Nullable String countryCode,
-                                          int limit,
-                                          @NonNull final ForecastListener listener) {
+    public static void getThreeHoursForecast(@NonNull String cityName,
+                                             @Nullable String countryCode,
+                                             int limit,
+                                             @NonNull final ForecastListener listener) {
 
         //Check if the sdk initialized?
         checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<WeatherForecast> observable = apiService
-                .getFiveDayForecast(countryCode == null ? cityName : (cityName + countryCode),
+                .getThreeHoursForecast(countryCode == null ? cityName : (cityName + countryCode),
                         (limit < 0 ? limit + "" : ""), sUnit, sApiKey);
 
         observable.observeOn(AndroidSchedulers.mainThread())
@@ -338,24 +338,24 @@ public class OpenWeatherApi {
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static void getFiveDayForecast(double latitude,
-                                          double longitude,
-                                          @NonNull final ForecastListener listener) {
-        getFiveDayForecast(latitude, longitude, NO_LIMIT, listener);
+    public static void getThreeHoursForecast(double latitude,
+                                             double longitude,
+                                             @NonNull final ForecastListener listener) {
+        getThreeHoursForecast(latitude, longitude, NO_LIMIT, listener);
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static void getFiveDayForecast(double latitude,
-                                          double longitude,
-                                          int limit,
-                                          @NonNull final ForecastListener listener) {
+    public static void getThreeHoursForecast(double latitude,
+                                             double longitude,
+                                             int limit,
+                                             @NonNull final ForecastListener listener) {
 
         //Check if the sdk initialized?
         checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<WeatherForecast> observable = apiService
-                .getFiveDayForecast(latitude, longitude,
+                .getThreeHoursForecast(latitude, longitude,
                         (limit < 0 ? limit + "" : ""),
                         sUnit, sApiKey);
 
@@ -380,7 +380,7 @@ public class OpenWeatherApi {
 
 
     /***********************************************************************************************
-     * 16 DAYS FORECAST API
+     * DAILY FORECAST FOR MAX 16 DAYS FORECAST API
      ***********************************************************************************************/
 
 }

@@ -48,30 +48,30 @@ interface APIService {
                                                                        @Query("appid") String apikey);
 
     /***********************************************************************************************
-     * FIVE DAYS FORECAST API
+     * THREE HOURLY FORECAST FOR MAX 5 DAYS FORECAST API
      ***********************************************************************************************/
 
     @GET("group")
-    Observable<WeatherForecast> getFiveDayForecast(@Query("q") String cityAndCountry,
-                                                   @Query("cnt") String limit,
-                                                   @Query("units") String unit,
-                                                   @Query("appid") String apikey);
+    Observable<WeatherForecast> getThreeHoursForecast(@Query("q") String cityAndCountry,
+                                                      @Query("cnt") String limit,
+                                                      @Query("units") String unit,
+                                                      @Query("appid") String apikey);
 
     @GET("group")
-    Observable<WeatherForecast> getFiveDayForecast(@Query("id") int cityId,
-                                                   @Query("cnt") String limit,
-                                                   @Query("units") String unit,
-                                                   @Query("appid") String apikey);
+    Observable<WeatherForecast> getThreeHoursForecast(@Query("id") int cityId,
+                                                      @Query("cnt") String limit,
+                                                      @Query("units") String unit,
+                                                      @Query("appid") String apikey);
 
     @GET("weather")
-    Observable<WeatherForecast> getFiveDayForecast(@Query("lat") double latitude,
-                                                   @Query("lon") double longitude,
-                                                   @Query("cnt") String limit,
-                                                   @Query("units") String unit,
-                                                   @Query("appid") String apikey);
+    Observable<WeatherForecast> getThreeHoursForecast(@Query("lat") double latitude,
+                                                      @Query("lon") double longitude,
+                                                      @Query("cnt") String limit,
+                                                      @Query("units") String unit,
+                                                      @Query("appid") String apikey);
 
     /***********************************************************************************************
-     * 16 DAYS FORECAST API
+     * DAILY FORECAST FOR MAX 16 DAYS FORECAST API
      ***********************************************************************************************/
 
 
