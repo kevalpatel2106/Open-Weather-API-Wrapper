@@ -1,5 +1,5 @@
 
-package com.openweatherweapper.models;
+package com.openweatherweapper.models.params;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

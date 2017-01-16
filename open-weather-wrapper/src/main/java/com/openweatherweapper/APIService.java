@@ -2,6 +2,7 @@ package com.openweatherweapper;
 
 import com.openweatherweapper.models.CurrentWeather;
 import com.openweatherweapper.models.MultipleCitiesWeathers;
+import com.openweatherweapper.models.WeatherForecast;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -17,7 +18,7 @@ interface APIService {
     String BASE_URL = "http://api.openweathermap.org/data/2.5/";
 
     @GET("weather")
-    Observable<CurrentWeather> getCurrentWeatherByName(@Query("q") String city,
+    Observable<CurrentWeather> getCurrentWeatherByName(@Query("q") String cityAndCountry,
                                                        @Query("units") String unit,
                                                        @Query("appid") String apikey);
 
@@ -41,4 +42,23 @@ interface APIService {
     Observable<MultipleCitiesWeathers> getCurrentWeatherMultipleCities(@Query("id") String cityIds,
                                                                        @Query("units") String unit,
                                                                        @Query("appid") String apikey);
+
+
+    @GET("group")
+    Observable<WeatherForecast> getFiveDayForecast(@Query("q") String cityAndCountry,
+                                                   @Query("units") String unit,
+                                                   @Query("appid") String apikey);
+
+    @GET("group")
+    Observable<WeatherForecast> getFiveDayForecast(@Query("id") int cityId,
+                                                   @Query("units") String unit,
+                                                   @Query("appid") String apikey);
+
+    @GET("weather")
+    Observable<WeatherForecast> getFiveDayForecast(@Query("lat") double latitude,
+                                                   @Query("lon") double longitude,
+                                                   @Query("units") String unit,
+                                                   @Query("appid") String apikey);
+
+
 }

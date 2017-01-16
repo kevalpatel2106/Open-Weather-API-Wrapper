@@ -3,6 +3,14 @@ package com.openweatherweapper.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.openweatherweapper.models.params.Clouds;
+import com.openweatherweapper.models.params.Coord;
+import com.openweatherweapper.models.params.Main;
+import com.openweatherweapper.models.params.Rain;
+import com.openweatherweapper.models.params.Snow;
+import com.openweatherweapper.models.params.Sys;
+import com.openweatherweapper.models.params.Weather;
+import com.openweatherweapper.models.params.Wind;
 
 import java.util.ArrayList;
 import java.util.List;

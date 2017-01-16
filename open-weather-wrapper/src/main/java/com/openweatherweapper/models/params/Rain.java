@@ -1,4 +1,4 @@
-package com.openweatherweapper.models;
+package com.openweatherweapper.models.params;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -9,14 +9,14 @@ import com.google.gson.annotations.SerializedName;
  * @author {@link 'https://github.com/kevalpatel2106'}
  */
 
-public class Snow {
+public class Rain {
 
     @SerializedName("3h")
     @Expose
     private int last3hVolume;
 
     /**
-     * @return Snow volume for the last 3 hours
+     * @return Rain volume for the last 3 hours
      */
     public int getLast3hVolume() {
         return last3hVolume;
