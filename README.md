@@ -2,6 +2,8 @@
 
 [ ![Download](https://api.bintray.com/packages/kevalpatel2106/maven/Open-Weather-API-Wrapper/images/download.svg) ](https://bintray.com/kevalpatel2106/maven/Open-Weather-API-Wrapper/_latestVersion)
 
+![sun.png](/images/sun.png)
+
 Open Weather API Wrapper is an Android wrapper for the APIs of https://openweathermap.org. This library handles all the network operations and parameter validations on behalf of the developer.
 
 ##Dependency:
