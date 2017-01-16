@@ -17,18 +17,22 @@ interface APIService {
 
     @GET("weather")
     Observable<CurrentWeather> getCurrentWeatherByName(@Query("q") String city,
+                                                       @Query("units") String unit,
                                                        @Query("appid") String apikey);
 
     @GET("weather")
     Observable<CurrentWeather> getCurrentWeatherByLatLng(@Query("lat") double latitude,
                                                          @Query("lon") double longitude,
+                                                         @Query("units") String unit,
                                                          @Query("appid") String apikey);
 
     @GET("weather")
     Observable<CurrentWeather> getCurrentWeatherById(@Query("id") int cityId,
+                                                     @Query("units") String unit,
                                                      @Query("appid") String apikey);
 
     @GET("weather")
     Observable<CurrentWeather> getCurrentWeatherByZipCode(@Query("zip") String zipCode,
+                                                          @Query("units") String unit,
                                                           @Query("appid") String apikey);
 }

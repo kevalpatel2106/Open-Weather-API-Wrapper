@@ -8,7 +8,7 @@ import com.openweatherweapper.models.CurrentWeather;
  * @author {@link 'https://github.com/kevalpatel2106'}
  */
 
-public interface CurrentWeatherResponseListener {
+public interface CurrentWeatherListener {
 
     void onResponse(CurrentWeather currentWeather);
 

@@ -50,6 +50,8 @@ public class Main {
     }
 
     /**
+     * This is the optional params.
+     *
      * @return Minimum temperature at the moment. This is deviation from current temp that is possible
      * for large cities and megalopolises geographically expanded (use these parameter optionally).
      * Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
@@ -59,6 +61,8 @@ public class Main {
     }
 
     /**
+     * This is the optional params.
+     *
      * @return Maximum temperature at the moment. This is deviation from current temp that is possible
      * for large cities and megalopolises geographically expanded (use these parameter optionally).
      * Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.

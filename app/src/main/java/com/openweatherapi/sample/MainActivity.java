@@ -8,7 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.openweatherweapper.OpenWeatherApi;
-import com.openweatherweapper.interfaces.CurrentWeatherResponseListener;
+import com.openweatherweapper.Unit;
+import com.openweatherweapper.interfaces.CurrentWeatherListener;
 import com.openweatherweapper.models.CurrentWeather;
 
 import java.text.SimpleDateFormat;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView cityTv;
     private TextView tempTv;
 
-    private CurrentWeatherResponseListener mCurrentWeatherResponseListener = new CurrentWeatherResponseListener() {
+    private CurrentWeatherListener mCurrentWeatherListener = new CurrentWeatherListener() {
         @Override
         public void onResponse(CurrentWeather currentWeather) {
             cityTv.setText(currentWeather.getCityName());
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initialize the api
-        OpenWeatherApi.initilize(getString(R.string.your_open_weather_api_key));
+        OpenWeatherApi.initialize(getString(R.string.your_open_weather_api_key), Unit.STANDARD);
 
         cityTv = (TextView) findViewById(R.id.city_tv);
         tempTv = (TextView) findViewById(R.id.temp_tv);
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String s = cityEt.getText().toString().trim();
                 if (!s.isEmpty())
-                    OpenWeatherApi.getCurrentWeather(s, mCurrentWeatherResponseListener);
+                    OpenWeatherApi.getCurrentWeather(s, mCurrentWeatherListener);
             }
         });
     }

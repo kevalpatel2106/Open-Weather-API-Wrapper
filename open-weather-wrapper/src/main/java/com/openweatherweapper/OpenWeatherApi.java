@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.openweatherweapper.exception.InvalidApiKeyException;
 import com.openweatherweapper.exception.NotInitilizedException;
-import com.openweatherweapper.interfaces.CurrentWeatherResponseListener;
+import com.openweatherweapper.interfaces.CurrentWeatherListener;
 import com.openweatherweapper.models.CurrentWeather;
 
 import rx.Observable;
@@ -23,6 +23,7 @@ public class OpenWeatherApi {
     @SuppressWarnings("NullableProblems")
     @NonNull
     private static String sApiKey;
+    private static String sUnit;
 
     private OpenWeatherApi() {
         throw new RuntimeException("Private constructor cannot be access by another class.");
@@ -35,11 +36,14 @@ public class OpenWeatherApi {
      *               you can generate from http://openweathermap.org/appid .
      * @see 'http://openweathermap.org/appid'
      */
-    public static void initilize(@NonNull String apiKey) {
+    public static void initialize(@NonNull String apiKey, @Unit.Units String unit) {
         //noinspection ConstantConditions
         if (apiKey == null) throw new InvalidApiKeyException();
 
         sApiKey = apiKey;
+        sUnit = unit;
+
+        if (!Unit.isValidUnit(sUnit)) sUnit = Unit.STANDARD;
     }
 
     @NonNull
@@ -47,27 +51,34 @@ public class OpenWeatherApi {
         return sApiKey;
     }
 
-    private static void checkInitilizeOrThrow() {
+    @NonNull
+    @Unit.Units
+    static String getUnit() {
+        return sUnit;
+    }
+
+    private static void checkInitializeOrThrow() {
         //noinspection ConstantConditions
         if (sApiKey == null) throw new NotInitilizedException();
     }
 
     public static void getCurrentWeather(@NonNull String cityName,
-                                         @NonNull final CurrentWeatherResponseListener listener) {
+                                         @NonNull final CurrentWeatherListener listener) {
         getCurrentWeather(cityName, null, listener);
     }
 
 
+    @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(@NonNull String cityName,
                                          @Nullable String countryCode,
-                                         @NonNull final CurrentWeatherResponseListener listener) {
+                                         @NonNull final CurrentWeatherListener listener) {
 
         //Check if the sdk initialized?
-        checkInitilizeOrThrow();
+        checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<CurrentWeather> observable = apiService
-                .getCurrentWeatherByName(countryCode == null ? cityName : (cityName + countryCode), sApiKey);
+                .getCurrentWeatherByName(countryCode == null ? cityName : (cityName + countryCode), sUnit, sApiKey);
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new Observer<CurrentWeather>() {
@@ -88,16 +99,17 @@ public class OpenWeatherApi {
 
     }
 
+    @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(double latitude,
                                          double longitude,
-                                         @NonNull final CurrentWeatherResponseListener listener) {
+                                         @NonNull final CurrentWeatherListener listener) {
 
         //Check if the sdk initialized?
-        checkInitilizeOrThrow();
+        checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<CurrentWeather> observable = apiService
-                .getCurrentWeatherByLatLng(latitude, longitude, sApiKey);
+                .getCurrentWeatherByLatLng(latitude, longitude, sUnit, sApiKey);
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new Observer<CurrentWeather>() {
@@ -118,14 +130,15 @@ public class OpenWeatherApi {
 
     }
 
+    @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(int cityId,
-                                         @NonNull final CurrentWeatherResponseListener listener) {
+                                         @NonNull final CurrentWeatherListener listener) {
 
         //Check if the sdk initialized?
-        checkInitilizeOrThrow();
+        checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
-        Observable<CurrentWeather> observable = apiService.getCurrentWeatherById(cityId, sApiKey);
+        Observable<CurrentWeather> observable = apiService.getCurrentWeatherById(cityId, sUnit, sApiKey);
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new Observer<CurrentWeather>() {
@@ -146,16 +159,17 @@ public class OpenWeatherApi {
 
     }
 
-    public static void getCurrentWeather(int zipCode,
+    @SuppressWarnings("WeakerAccess")
+    public static void getCurrentWeather(long zipCode,
                                          @NonNull String countryCode,
-                                         @NonNull final CurrentWeatherResponseListener listener) {
+                                         @NonNull final CurrentWeatherListener listener) {
 
         //Check if the sdk initialized?
-        checkInitilizeOrThrow();
+        checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<CurrentWeather> observable = apiService
-                .getCurrentWeatherByZipCode(zipCode + "," + countryCode, sApiKey);
+                .getCurrentWeatherByZipCode(zipCode + "," + countryCode, sUnit, sApiKey);
 
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
@@ -174,6 +188,5 @@ public class OpenWeatherApi {
                         listener.onResponse(currentWeather);
                     }
                 });
-
     }
 }

@@ -28,7 +28,12 @@ class RetrofitBuilder {
                     .addInterceptor(interceptor)
                     .build();
         } else {        //In production environment logs wont be available
-            client = new OkHttpClient.Builder().build();
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+            client = new OkHttpClient.Builder()
+                    .addInterceptor(interceptor)
+                    .build();
         }
 
         //Building retrofit

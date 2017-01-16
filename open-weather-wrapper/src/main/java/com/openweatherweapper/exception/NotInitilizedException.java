@@ -9,6 +9,6 @@ package com.openweatherweapper.exception;
 public class NotInitilizedException extends RuntimeException {
 
     public NotInitilizedException(){
-        super("The library is not initialized yet. Use OpenWeatherApi.initilize() at the lunch activity of your application.");
+        super("The library is not initialized yet. Use OpenWeatherApi.initialize() at the lunch activity of your application.");
     }
 }
