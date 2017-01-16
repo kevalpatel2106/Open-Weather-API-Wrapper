@@ -1,1 +1,1 @@
-include ':app', ':open-weather-wrapper'
+include ':sample', ':open-weather-wrapper'
