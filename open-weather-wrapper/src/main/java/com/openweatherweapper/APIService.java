@@ -17,6 +17,10 @@ import rx.Observable;
 interface APIService {
     String BASE_URL = "http://api.openweathermap.org/data/2.5/";
 
+    /***********************************************************************************************
+     * CURRENT WEATHER APIS
+     ***********************************************************************************************/
+
     @GET("weather")
     Observable<CurrentWeather> getCurrentWeatherByName(@Query("q") String cityAndCountry,
                                                        @Query("units") String unit,
@@ -43,22 +47,32 @@ interface APIService {
                                                                        @Query("units") String unit,
                                                                        @Query("appid") String apikey);
 
+    /***********************************************************************************************
+     * FIVE DAYS FORECAST API
+     ***********************************************************************************************/
 
     @GET("group")
     Observable<WeatherForecast> getFiveDayForecast(@Query("q") String cityAndCountry,
+                                                   @Query("cnt") String limit,
                                                    @Query("units") String unit,
                                                    @Query("appid") String apikey);
 
     @GET("group")
     Observable<WeatherForecast> getFiveDayForecast(@Query("id") int cityId,
+                                                   @Query("cnt") String limit,
                                                    @Query("units") String unit,
                                                    @Query("appid") String apikey);
 
     @GET("weather")
     Observable<WeatherForecast> getFiveDayForecast(@Query("lat") double latitude,
                                                    @Query("lon") double longitude,
+                                                   @Query("cnt") String limit,
                                                    @Query("units") String unit,
                                                    @Query("appid") String apikey);
+
+    /***********************************************************************************************
+     * 16 DAYS FORECAST API
+     ***********************************************************************************************/
 
 
 }

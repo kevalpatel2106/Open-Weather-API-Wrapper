@@ -27,6 +27,8 @@ import rx.schedulers.Schedulers;
  */
 public class OpenWeatherApi {
 
+    private static final int NO_LIMIT = -1;
+
     @SuppressWarnings("NullableProblems")
     @NonNull
     private static String sApiKey;
@@ -69,6 +71,15 @@ public class OpenWeatherApi {
         if (sApiKey == null) throw new NotInitilizedException();
     }
 
+    /***********************************************************************************************
+     * CURRENT WEATHER APIS
+     ***********************************************************************************************/
+
+    /**
+     * @param cityName
+     * @param listener
+     */
+    @SuppressWarnings("WeakerAccess")
     public static void getCurrentWeather(@NonNull String cityName,
                                          @NonNull final CurrentWeatherListener listener) {
         getCurrentWeather(cityName, null, listener);
@@ -228,8 +239,23 @@ public class OpenWeatherApi {
                 });
     }
 
+    /***********************************************************************************************
+     * FIVE DAYS FORECAST API
+     ***********************************************************************************************/
+
+    /**
+     * @param cityId
+     * @param listener
+     */
     @SuppressWarnings("WeakerAccess")
     public static void getFiveDayForecast(int cityId,
+                                          @NonNull final ForecastListener listener) {
+        getFiveDayForecast(cityId, NO_LIMIT, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getFiveDayForecast(int cityId,
+                                          int limit,
                                           @NonNull final ForecastListener listener) {
 
         //Check if the sdk initialized?
@@ -237,7 +263,7 @@ public class OpenWeatherApi {
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<WeatherForecast> observable = apiService
-                .getFiveDayForecast(cityId, sUnit, sApiKey);
+                .getFiveDayForecast(cityId, (limit < 0 ? limit + "" : ""), sUnit, sApiKey);
 
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
@@ -256,19 +282,41 @@ public class OpenWeatherApi {
                         listener.onResponse(weatherForecasts);
                     }
                 });
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getFiveDayForecast(@NonNull String cityName,
+                                          @NonNull final ForecastListener listener) {
+        getFiveDayForecast(cityName, null, NO_LIMIT, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getFiveDayForecast(@NonNull String cityName,
+                                          int limit,
+                                          @NonNull final ForecastListener listener) {
+        getFiveDayForecast(cityName, null, limit, listener);
     }
 
     @SuppressWarnings("WeakerAccess")
     public static void getFiveDayForecast(@NonNull String cityName,
                                           @Nullable String countryCode,
                                           @NonNull final ForecastListener listener) {
+        getFiveDayForecast(cityName, countryCode, NO_LIMIT, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getFiveDayForecast(@NonNull String cityName,
+                                          @Nullable String countryCode,
+                                          int limit,
+                                          @NonNull final ForecastListener listener) {
 
         //Check if the sdk initialized?
         checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<WeatherForecast> observable = apiService
-                .getFiveDayForecast(countryCode == null ? cityName : (cityName + countryCode), sUnit, sApiKey);
+                .getFiveDayForecast(countryCode == null ? cityName : (cityName + countryCode),
+                        (limit < 0 ? limit + "" : ""), sUnit, sApiKey);
 
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
@@ -287,24 +335,29 @@ public class OpenWeatherApi {
                         listener.onResponse(weatherForecasts);
                     }
                 });
-    }
-
-    public static void getFiveDayForecast(@NonNull String cityName,
-                                          @NonNull final ForecastListener listener) {
-        getFiveDayForecast(cityName, null, listener);
     }
 
     @SuppressWarnings("WeakerAccess")
     public static void getFiveDayForecast(double latitude,
                                           double longitude,
                                           @NonNull final ForecastListener listener) {
+        getFiveDayForecast(latitude, longitude, NO_LIMIT, listener);
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public static void getFiveDayForecast(double latitude,
+                                          double longitude,
+                                          int limit,
+                                          @NonNull final ForecastListener listener) {
 
         //Check if the sdk initialized?
         checkInitializeOrThrow();
 
         APIService apiService = RetrofitBuilder.getApiService();
         Observable<WeatherForecast> observable = apiService
-                .getFiveDayForecast(latitude, longitude, sUnit, sApiKey);
+                .getFiveDayForecast(latitude, longitude,
+                        (limit < 0 ? limit + "" : ""),
+                        sUnit, sApiKey);
 
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
@@ -324,4 +377,10 @@ public class OpenWeatherApi {
                     }
                 });
     }
+
+
+    /***********************************************************************************************
+     * 16 DAYS FORECAST API
+     ***********************************************************************************************/
+
 }
