@@ -17,11 +17,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 class RetrofitBuilder {
 
     static APIService getApiService() {
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client;
 
         if (BuildConfig.DEBUG) { //In sandbox environment logs will be displayed.
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
             client = new OkHttpClient
                     .Builder()
                     .addInterceptor(interceptor)

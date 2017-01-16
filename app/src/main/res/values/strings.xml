@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Open Weather Api</string>
+
+    <string name="degree_fernhight">\u00B0 F</string>
 </resources>

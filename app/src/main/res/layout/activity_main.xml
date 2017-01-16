@@ -11,8 +11,103 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.openweatherapi.sample.MainActivity">
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="Go"
+        android:id="@+id/go_btn"
+        android:layout_alignParentRight="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/city_et"
+        android:hint="Enter city"
+        android:layout_toLeftOf="@+id/go_btn"
+        android:layout_toStartOf="@+id/go_btn"/>
+
+    <TextView
+        android:layout_below="@id/city_et"
+        android:id="@+id/city_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/temp_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_below="@id/city_tv"
+        android:drawableLeft="@mipmap/ic_temp"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:text="10"
+        android:textSize="26sp"/>
+
+    <TextView
+        android:id="@+id/temp_low_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_below="@id/city_tv"
+        android:layout_marginLeft="@dimen/temp_margin_left"
+        android:layout_toRightOf="@id/temp_tv"
+        android:drawableLeft="@mipmap/ic_temp_low"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:text="10"/>
+
+    <TextView
+        android:id="@+id/temp_high_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_below="@id/temp_low_tv"
+        android:layout_marginLeft="@dimen/temp_margin_left"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/temp_tv"
+        android:drawableLeft="@mipmap/ic_temp_heigh"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:text="10"/>
+
+    <TextView
+        android:id="@+id/wind_speed_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/temp_high_tv"
+        android:layout_marginTop="4dp"
+        android:drawableLeft="@mipmap/ic_wind"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:textSize="26sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wind_speed_tv"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/sunrise_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/ic_sun"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:textSize="26sp"/>
+
+        <TextView
+            android:id="@+id/sunset_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/ic_moon"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:textSize="26sp"/>
+    </LinearLayout>
 </RelativeLayout>

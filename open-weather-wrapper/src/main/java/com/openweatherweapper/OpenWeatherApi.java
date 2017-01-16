@@ -20,6 +20,7 @@ import rx.schedulers.Schedulers;
  */
 public class OpenWeatherApi {
 
+    @SuppressWarnings("NullableProblems")
     @NonNull
     private static String sApiKey;
 
