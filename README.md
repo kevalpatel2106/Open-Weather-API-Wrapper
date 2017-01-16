@@ -30,7 +30,7 @@ Open weather api provides you functions to access below information:
 
 You can get the required information by passing the required parameters. The information will be received in specific listeners.
 
-Here is the example of getting the there hourly forecast of the weather by city name.
+Here is the example of getting the three hourly forecast of the weather by city name.
 ```java
 OpenWeatherApi.getThreeHoursForecast("Landon,uk", new ForecastListener() {
     @Override
