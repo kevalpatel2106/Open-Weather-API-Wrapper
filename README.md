@@ -14,6 +14,7 @@ dependencies {
 
 ##How to use this library?:
 - **Initialization:**
+
 Initialize the library in your launch activity by providing the open weather api key and the unit system you want to use throuout the application.
 If you don't have the open weather api key, you can generate it from [here](http://openweathermap.org/appid).
 ```java
@@ -21,6 +22,7 @@ If you don't have the open weather api key, you can generate it from [here](http
 ```
 
 - **Accessing the API:**
+
 Open weather api provides you functions to access below information:
 1. Get current weather for provided city, geo point or postal code
 2. Get three hourly forecast for city or, geo point.
