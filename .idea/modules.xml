@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Open-Weather-API-Wrapper.iml" filepath="$PROJECT_DIR$/Open-Weather-API-Wrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OpenWeatherApi.iml" filepath="$PROJECT_DIR$/OpenWeatherApi.iml" />
       <module fileurl="file://$PROJECT_DIR$/open-weather-wrapper/open-weather-wrapper.iml" filepath="$PROJECT_DIR$/open-weather-wrapper/open-weather-wrapper.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
