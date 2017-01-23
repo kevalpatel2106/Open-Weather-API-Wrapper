@@ -1,6 +1,6 @@
 # Open-Weather-API-Wrapper
 
-[ ![Download](https://api.bintray.com/packages/kevalpatel2106/maven/Open-Weather-API-Wrapper/images/download.svg) ](https://bintray.com/kevalpatel2106/maven/Open-Weather-API-Wrapper/_latestVersion) [![Twitter](https://img.shields.io/badge/Twitter-@Kevalonly77-blue.svg?style=flat)](https://twitter.com/Kevalonly77)
+[ ![Download](https://api.bintray.com/packages/kevalpatel2106/maven/Open-Weather-API-Wrapper/images/download.svg) ](https://bintray.com/kevalpatel2106/maven/Open-Weather-API-Wrapper/_latestVersion) [![Twitter](https://img.shields.io/badge/Twitter-@Kevalonly77-blue.svg?style=flat)](https://twitter.com/Kevalonly77) [![Build Status](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper.svg?branch=master)](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper)
 
 ![sun.png](/images/sun.png)
 
