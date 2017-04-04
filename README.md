@@ -1,6 +1,6 @@
 # Open-Weather-API-Wrapper
 
-[ ![Download](https://api.bintray.com/packages/kevalpatel2106/maven/Open-Weather-API-Wrapper/images/download.svg) ](https://bintray.com/kevalpatel2106/maven/Open-Weather-API-Wrapper/_latestVersion) [![Twitter](https://img.shields.io/badge/Twitter-@Kevalonly77-blue.svg?style=flat)](https://twitter.com/Kevalonly77) [![Build Status](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper.svg?branch=master)](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper)
+[ ![Download](https://api.bintray.com/packages/kevalpatel2106/maven/Open-Weather-API-Wrapper/images/download.svg) ](https://bintray.com/kevalpatel2106/maven/Open-Weather-API-Wrapper/_latestVersion) [![Twitter](https://img.shields.io/badge/Twitter-@Kevalonly77-blue.svg?style=flat)](https://twitter.com/Kevalonly77) [![Build Status](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper.svg?branch=master)](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Open--Weather--API--Wrapper-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5251)
 
 ![sun.png](/images/sun.png)
 
