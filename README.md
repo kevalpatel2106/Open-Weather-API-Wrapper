@@ -1,6 +1,6 @@
 # Open-Weather-API-Wrapper
 
-[ ![Download](https://api.bintray.com/packages/kevalpatel2106/maven/Open-Weather-API-Wrapper/images/download.svg) ](https://bintray.com/kevalpatel2106/maven/Open-Weather-API-Wrapper/_latestVersion) [![Twitter](https://img.shields.io/badge/Twitter-@Kevalonly77-blue.svg?style=flat)](https://twitter.com/Kevalonly77) [![Build Status](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper.svg?branch=master)](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Open--Weather--API--Wrapper-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5251)
+[ ![Download](https://api.bintray.com/packages/kevalpatel2106/maven/Open-Weather-API-Wrapper/images/download.svg) ](https://bintray.com/kevalpatel2106/maven/Open-Weather-API-Wrapper/_latestVersion) [![Build Status](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper.svg?branch=master)](https://travis-ci.org/kevalpatel2106/Open-Weather-API-Wrapper) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Open--Weather--API--Wrapper-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5251)
 
 ![sun.png](/images/sun.png)
 
@@ -62,7 +62,7 @@ Open Weather API Wrapper uses [RxJava](https://github.com/ReactiveX/RxJava) and 
 3. Generate pull request. Mention all the required description regarding changes you made.
 
 ## Questions:
-If you have any questions, hit me on twitter [@kevalonly77](https://twitter.com/Kevalonly77) .
+Hit me on twitter [![Twitter](https://img.shields.io/badge/Twitter-@kevalpatel2106-blue.svg?style=flat)](https://twitter.com/kevalpatel2106)
 
 ## License
 Copyright 2017 Keval Patel
